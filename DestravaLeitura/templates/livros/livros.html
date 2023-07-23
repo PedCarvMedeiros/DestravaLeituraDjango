@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<nav class="navbar-nav ml-auto">
+    <div class="container-fluid">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Livro" aria-label="Search" name="bookname">
+            <button class="btn btn-lg btn-light" type="submit">Buscar</button>
+        </form>
+        <ul id="book-list">
+            {% for book in livros %}
+            <ol id="book-item">
+                <img id="book-image" src="{{ book.foto_url }}" alt="{{ book.nome }}" width="225" height="325">
+                <div class="book-info">
+                    <p>Nome: {{ book.nome }}</p>
+                    <p>Autor(a): {{ book.autor }}</p>
+                    <p>Gênero: {{ book.genero }}</p>
+                    <p>Xerocado: {{ book.xerox }}</p>
+                    <p>Emprestado: {{ book.emprestado }}</p>
+                </div>
+            </ol>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+{%  endblock %}
